@@ -1,0 +1,12 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<header class="header">
+    <a class="logo" href="${pageContext.request.contextPath}/">Пекарня</a>
+    <nav>
+        <a href="${pageContext.request.contextPath}/">Каталог</a><a href="${pageContext.request.contextPath}/cart">Корзина</a><c:if test="${not empty sessionScope.user}"><a href="${pageContext.request.contextPath}/orders">Мои заказы</a><c:if test="${sessionScope.user.role == 'ADMIN'}"><a href="${pageContext.request.contextPath}/admin/products">Администрирование</a></c:if>
+        <form class="inline" action="${pageContext.request.contextPath}/logout" method="post">
+            <button class="link-button">Выйти (${sessionScope.user.firstName})</button>
+        </form>
+        </c:if><c:if test="${empty sessionScope.user}"><a href="${pageContext.request.contextPath}/login">Войти</a><a href="${pageContext.request.contextPath}/register">Регистрация</a></c:if>
+    </nav>
+</header>

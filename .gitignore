@@ -1,0 +1,4 @@
+/src/**/*.class
+/src/**/*.log
+/src/**/target/
+/src/**/build/
